@@ -22,6 +22,10 @@ RUN mv kepubify-linux-64bit /usr/local/kepubify/kepubify
 RUN chmod +x /usr/local/kepubify/kepubify
 ENV PATH="/usr/local/kepubify:${PATH}"
 
+# Install Python (requirement to install Calibre)
+RUN apk --update --no-cache python3
+# Install Calibre
+
 # Install all the required packages
 RUN npm install 
 CMD ["node", "/code/index.js"]
